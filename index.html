@@ -91,13 +91,23 @@
       inset: 0;
       z-index: 2;
       pointer-events: none;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(26,22,20,.05) 0 1px, transparent 1px 3.5rem),
-        repeating-linear-gradient(90deg, rgba(26,22,20,.05) 0 1px, transparent 1px 3.5rem);
-      /* Full breathing cycle: grid fades all the way OUT, holds a beat,
-         then returns — much more pronounced than a shallow dip */
-      -webkit-mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,0) 24rem, rgba(0,0,0,0) 32rem, rgba(0,0,0,1) 56rem);
-      mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,0) 24rem, rgba(0,0,0,0) 32rem, rgba(0,0,0,1) 56rem);
+      /* The paint: accent colors flowing down the page. The grid tile
+         (an SVG of one cell's top+left hairlines) MASKS the gradient, so
+         the lines themselves shift terracotta -> blush as you scroll —
+         intersected with the breathing gradient that fades the whole
+         grid in and out. */
+      background-image: repeating-linear-gradient(180deg, #C07B68 0rem, #EDD4CB 30rem, #C07B68 60rem);
+      opacity: .38;
+      -webkit-mask-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M0 .5H56M.5 0V56' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,0) 24rem, rgba(0,0,0,0) 32rem, rgba(0,0,0,1) 56rem);
+      mask-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpath d='M0 .5H56M.5 0V56' stroke='black' stroke-width='1' fill='none'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,0) 24rem, rgba(0,0,0,0) 32rem, rgba(0,0,0,1) 56rem);
+      -webkit-mask-repeat: repeat, repeat;
+      mask-repeat: repeat, repeat;
+      -webkit-mask-composite: source-in;
+      mask-composite: intersect;
     }
     /* The grid is drafting vellum — it belongs on the paper, not the dark
        bands. Dark/ink/terracotta sections lift above the grid layer. */
