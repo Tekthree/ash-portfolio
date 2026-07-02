@@ -56,14 +56,7 @@
       /* Textured stone mat — a whisper of paper grain via SVG noise,
          so the border reads as material, not flat color. */
       background-color: var(--stone);
-      /* Texture: woven linen. Real mat boards are linen-wrapped, so the mat
-         gets a fine crosshatch weave (two hairline grids offset a half-step)
-         with the paper-grain noise underneath to soften the repeat. */
-      background-image:
-        repeating-linear-gradient(0deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(90deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.05) 2px 3px, transparent 3px 4px),
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
       color: var(--ink);
       font-family: "arboria", system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -76,6 +69,23 @@
     img { display: block; max-width: 100%; }
     a { color: inherit; }
     ::selection { background: #DCC2B4; color: var(--ink); }
+
+    /* Texture: woven linen on the mat. A large, light crosshatch weave,
+       masked by a diagonal gradient so it breathes — present in the corners,
+       fading through the middle, back in again. Fixed so the light stays
+       still while the page scrolls through it. */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(90deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.04) 3px 5px, transparent 5px 7px);
+      -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.1) 45%, rgba(0,0,0,.1) 55%, rgba(0,0,0,1) 100%);
+      mask-image: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.1) 45%, rgba(0,0,0,.1) 55%, rgba(0,0,0,1) 100%);
+    }
 
     /* The sheet — the cream board the whole site sits on, inset from the
        mat on every side. The fixed nav doubles as the mat's top edge. */
@@ -115,9 +125,9 @@
       /* Same linen weave as the mat — the nav IS the mat's top edge */
       background-color: var(--stone);
       background-image:
-        repeating-linear-gradient(0deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(90deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.05) 2px 3px, transparent 3px 4px);
+        repeating-linear-gradient(0deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(90deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.04) 3px 5px, transparent 5px 7px);
       display: flex; align-items: center;
     }
     .nav-inner {
