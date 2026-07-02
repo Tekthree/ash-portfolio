@@ -110,8 +110,10 @@
       mask-composite: intersect;
     }
     /* The grid is drafting vellum — it belongs on the paper, not the dark
-       bands. Dark/ink/terracotta sections lift above the grid layer. */
+       bands. Dark/ink/terracotta sections lift above the grid layer,
+       and so does every image: photos sit ON the vellum, not under it. */
     #hero, .strip, #contact, footer { position: relative; z-index: 3; }
+    .sheet img { position: relative; z-index: 3; }
 
     @container (width < 900px) {
       * {
@@ -314,6 +316,8 @@
       border: 1px solid var(--line);
       display: var(--meta-layout); gap: var(--space-md);
       margin-top: -1px;
+      /* Above the photo (z3) and the vellum grid — it's paper pinned on top */
+      z-index: 4;
     }
     .featured-meta-card .meta-row + .meta-row { margin-top: var(--space-xs); }
     :root { --meta-row-margin: var(--space-xs); }
