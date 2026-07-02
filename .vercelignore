@@ -1,0 +1,3 @@
+# Static project serves the HTML prototypes only — the Vite app deploys as its own Vercel project
+relume-compare
+build-work-pages.py
