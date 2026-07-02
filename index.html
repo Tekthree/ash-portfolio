@@ -56,7 +56,14 @@
       /* Textured stone mat — a whisper of paper grain via SVG noise,
          so the border reads as material, not flat color. */
       background-color: var(--stone);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      /* Texture: woven linen. Real mat boards are linen-wrapped, so the mat
+         gets a fine crosshatch weave (two hairline grids offset a half-step)
+         with the paper-grain noise underneath to soften the repeat. */
+      background-image:
+        repeating-linear-gradient(0deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.05) 2px 3px, transparent 3px 4px),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
       color: var(--ink);
       font-family: "arboria", system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
@@ -105,7 +112,12 @@
     #siteNav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
       height: var(--nav-h);
-      background: var(--stone);
+      /* Same linen weave as the mat — the nav IS the mat's top edge */
+      background-color: var(--stone);
+      background-image:
+        repeating-linear-gradient(0deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(26,22,20,.028) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(0deg, rgba(255,255,255,.05) 2px 3px, transparent 3px 4px);
       display: flex; align-items: center;
     }
     .nav-inner {

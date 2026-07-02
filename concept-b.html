@@ -48,7 +48,14 @@
     body {
       margin: 0;
       background-color: var(--paper);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      /* Texture: soft light washes over the paper — a blush glow falling from
+         the top right and a faint terracotta warmth rising bottom left, like
+         afternoon light on a wall. Noise grain sits underneath both. */
+      background-image:
+        radial-gradient(115rem 70rem at 88% -8%, rgba(237,212,203,.5) 0%, rgba(237,212,203,0) 55%),
+        radial-gradient(90rem 60rem at -12% 105%, rgba(192,123,104,.14) 0%, rgba(192,123,104,0) 55%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      background-attachment: fixed, fixed, scroll;
       color: var(--ink);
       font-family: "arboria", system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;

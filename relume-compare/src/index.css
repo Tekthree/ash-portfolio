@@ -12,3 +12,18 @@ h1, h2, h3, .text-h1, .text-h2, .text-h3, .text-h4 {
   font-family: "Cormorant Garamond", serif;
   font-weight: 600;
 }
+
+/* Texture: film grain. A fixed noise layer over EVERYTHING, photos included,
+   at soft-light blend — reads like analog film, pulls the stock-clean Relume
+   components and the photography into one atmosphere. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  /* feColorMatrix thresholds the turbulence alpha into crisp speckle —
+     raw feTurbulence output is pastel and vanishes under blending */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 7 -3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  opacity: 0.07;
+}
