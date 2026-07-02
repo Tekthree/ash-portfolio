@@ -92,11 +92,16 @@
       z-index: 2;
       pointer-events: none;
       background-image:
-        repeating-linear-gradient(0deg, rgba(26,22,20,.045) 0 1px, transparent 1px 3.5rem),
-        repeating-linear-gradient(90deg, rgba(26,22,20,.045) 0 1px, transparent 1px 3.5rem);
-      -webkit-mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,.15) 35rem, rgba(0,0,0,1) 70rem);
-      mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,.15) 35rem, rgba(0,0,0,1) 70rem);
+        repeating-linear-gradient(0deg, rgba(26,22,20,.05) 0 1px, transparent 1px 3.5rem),
+        repeating-linear-gradient(90deg, rgba(26,22,20,.05) 0 1px, transparent 1px 3.5rem);
+      /* Full breathing cycle: grid fades all the way OUT, holds a beat,
+         then returns — much more pronounced than a shallow dip */
+      -webkit-mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,0) 24rem, rgba(0,0,0,0) 32rem, rgba(0,0,0,1) 56rem);
+      mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,0) 24rem, rgba(0,0,0,0) 32rem, rgba(0,0,0,1) 56rem);
     }
+    /* The grid is drafting vellum — it belongs on the paper, not the dark
+       bands. Dark/ink/terracotta sections lift above the grid layer. */
+    #hero, .strip, #contact, footer { position: relative; z-index: 3; }
 
     @container (width < 900px) {
       * {
