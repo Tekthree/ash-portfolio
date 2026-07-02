@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #F6F1E9;
+  color: #1A1614;
+  -webkit-font-smoothing: antialiased;
+}
+/* Ash type system: Cormorant for display, mirroring concept-b */
+h1, h2, h3, .text-h1, .text-h2, .text-h3, .text-h4 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}

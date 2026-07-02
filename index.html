@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ash Riffe | Interior Architecture</title>
+  <meta name="description" content="Interior architecture for homes and spaces in Seattle. Ash Riffe designs considered, livable spaces that fit the way you actually live.">
+  <link rel="stylesheet" href="https://use.typekit.net/nil8axf.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --stone: #EDE6DC;
+      --stone-deep: #E2D6C6;
+      --ink: #1A1614;
+      --ink-soft: #6B5E58;
+      --terracotta: #C07B68;
+      --card: #FBF8F4;
+      --line: rgba(26,22,20,.13);
+
+      /* Fluid spacing scale — every value below scales continuously with
+         viewport width (375px to 1440px) instead of jumping at breakpoints.
+         Breakpoints are reserved for structural changes only (see container
+         queries further down): column counts, stacking, position switches. */
+      --space-3xs: clamp(0.75rem, 0.38vw + 0.66rem, 1rem);      /* 12 → 16 */
+      --space-2xs: clamp(1rem,    0.75vw + 0.82rem, 1.5rem);     /* 16 → 24 */
+      --space-xs:  clamp(1.25rem, 1.13vw + 0.99rem, 2rem);       /* 20 → 32 */
+      --space-sm:  clamp(1.5rem,  1.88vw + 1.06rem, 2.75rem);    /* 24 → 44 */
+      --space-md:  clamp(2rem,    3vw + 1.3rem, 4rem);           /* 32 → 64 */
+      --space-lg:  clamp(2.5rem,  4.51vw + 1.44rem, 5.5rem);     /* 40 → 88 */
+      --space-xl:  clamp(3.5rem,  4.51vw + 2.44rem, 6.5rem);     /* 56 → 104 */
+      --space-2xl: clamp(4rem,    8.08vw + 2.11rem, 9.375rem);   /* 64 → 150 */
+      --space-3xl: clamp(3rem,    7.89vw + 1.15rem, 8.25rem);    /* 48 → 132 */
+
+      /* The mat — the visible stone border framing the whole page,
+         like a matted presentation board. The page's signature move. */
+      --mat: clamp(0.875rem, 2.6vw, 2.75rem);
+      --nav-h: clamp(3.25rem, 4.5vw, 4rem);
+
+      /* Container-query breakpoint toggles — 1 or 0, combine via calc() */
+      --r-large: 1; --r-medium: 0; --r-small: 0;
+      --two-col: 1.05fr .95fr;
+      --about-col: 1fr .82fr;
+      --squiggle-display: block;
+      --meta-position: absolute;
+      --meta-width: 15.25rem;
+      --meta-layout: block;
+    }
+
+    /* container-type must live on a block ancestor with an explicit width,
+       otherwise it collapses instead of tracking the viewport. */
+    html { background: var(--stone); }
+    body {
+      margin: 0;
+      /* Textured stone mat — a whisper of paper grain via SVG noise,
+         so the border reads as material, not flat color. */
+      background-color: var(--stone);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      color: var(--ink);
+      font-family: "arboria", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      container-type: inline-size;
+      width: 100%;
+      padding: 0 var(--mat) var(--mat);
+      overflow-x: clip;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ::selection { background: #DCC2B4; color: var(--ink); }
+
+    /* The sheet — the cream board the whole site sits on, inset from the
+       mat on every side. The fixed nav doubles as the mat's top edge. */
+    .sheet {
+      position: relative;
+      margin-top: var(--nav-h);
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 80px -40px rgba(26,22,20,.35);
+    }
+
+    @container (width < 900px) {
+      * {
+        --r-large: 0; --r-medium: 1;
+        --two-col: 1fr; --about-col: 1fr;
+        --squiggle-display: none;
+        --meta-position: static;
+        --meta-width: auto;
+        --meta-layout: flex;
+      }
+    }
+    @container (width < 600px) {
+      * { --r-medium: 0; --r-small: 1; }
+    }
+
+    /* ---- SQUIGGLE MOTIF ---- */
+    /* A single hand-drawn line, reused sparingly as the page's signature accent —
+       stands in for the loose ideation marks on a designer's own moodboards. */
+    .squiggle { position: absolute; pointer-events: none; display: var(--squiggle-display); }
+
+    /* ---- NAV ---- */
+    /* Lives ON the mat, not the sheet — it is the mat's top edge,
+       so it stays the same textured stone as the border. */
+    #siteNav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      height: var(--nav-h);
+      background: var(--stone);
+      display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: 80rem; margin: 0 auto; width: 100%;
+      padding: 0 var(--space-md);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: "skeena-display", serif; font-weight: 700;
+      font-size: clamp(0.75rem, 0.4vw + 0.66rem, 0.875rem); letter-spacing: .18em;
+      text-decoration: none; color: var(--ink);
+    }
+    .nav-links { display: flex; align-items: center; gap: clamp(0.875rem, 2.2vw, 2.75rem); }
+    .nav-link {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(0.6875rem, 0.35vw + 0.61rem, 0.8125rem); letter-spacing: .03em;
+      text-decoration: none; color: var(--ink);
+      opacity: .82; transition: opacity .2s, color .2s;
+    }
+    .nav-link:hover { opacity: 1; color: var(--terracotta); }
+
+    /* ---- HERO: framed photo, headline overlaid ---- */
+    /* Sized so the photo plus the mat around it exactly fills the first
+       screen — the framing is the first thing a visitor reads. */
+    #hero {
+      position: relative;
+      height: calc(100vh - var(--nav-h) - var(--mat));
+      min-height: 34rem; max-height: 57.5rem;
+      overflow: clip;
+    }
+    .hero-photo { position: absolute; inset: 0; margin: 0; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,22,20,.12) 0%, rgba(26,22,20,.08) 38%, rgba(26,22,20,.62) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      height: 100%; display: flex; flex-direction: column;
+      align-items: center; justify-content: flex-end;
+      text-align: center; padding: 0 var(--space-sm) var(--space-xl);
+    }
+    .hero-eyebrow {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.6875rem; letter-spacing: .32em; text-transform: uppercase;
+      color: rgba(255,255,255,.86); margin: 0 0 var(--space-2xs);
+    }
+    .hero-headline {
+      font-family: "skeena-display", serif; font-weight: 700;
+      /* 48px at 375 → 92px at 1440 (Lumos slope+intercept form) */
+      font-size: clamp(3rem, 4.13vw + 2.03rem, 5.75rem);
+      line-height: 0.98; letter-spacing: -.01em;
+      color: #FFFFFF; margin: 0 0 var(--space-xs); max-width: 19ch;
+      text-wrap: balance;
+      text-shadow: 0 4px 30px rgba(0,0,0,.18);
+    }
+    .hero-headline em { font-style: italic; font-weight: 400; color: #F0D9CD; }
+    .hero-body {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.7; color: rgba(255,255,255,.86);
+      max-width: 42ch; margin: 0 0 var(--space-sm);
+    }
+    .hero-actions { display: flex; align-items: center; gap: var(--space-xs); flex-wrap: wrap; justify-content: center; }
+    .btn-text {
+      display: inline-flex; align-items: center; gap: 0.5625rem;
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.875rem; letter-spacing: .01em;
+      text-decoration: none; color: #FFFFFF;
+      border-bottom: 1px solid rgba(255,255,255,.6); padding-bottom: 3px;
+      transition: color .25s, border-color .25s;
+    }
+    .btn-text:hover { color: #F0D9CD; border-color: #F0D9CD; }
+    /* Centered hand-drawn mark above the eyebrow — the ornament that
+       replaces the old corner squiggle. */
+    .hero-mark { width: clamp(3.5rem, 5vw, 5rem); margin-bottom: var(--space-2xs); opacity: .9; }
+
+    /* ---- SECTION DIVIDER ORNAMENT ---- */
+    .section-divider { display: flex; justify-content: center; }
+    .section-divider svg { width: clamp(4.5rem, 6vw, 6rem); opacity: .75; }
+
+    /* ---- CREDIBILITY STRIP ---- */
+    /* Editorial hairline row on the sheet itself — quieter than the old
+       dark bar, which fought the framed-board look. */
+    .strip { border-bottom: 1px solid var(--line); }
+    .strip-inner {
+      max-width: 80rem; margin: 0 auto;
+      padding: var(--space-xs) var(--space-md);
+      display: flex; flex-wrap: wrap;
+      align-items: center; justify-content: center;
+      gap: 0.875rem 1.625rem;
+    }
+    .strip-text { font-family: "arboria", sans-serif; font-weight: 400; font-size: 0.6875rem; letter-spacing: .22em; text-transform: uppercase; color: #9A8878; }
+    .strip-dot { color: var(--terracotta); }
+
+    /* ---- SELECTED WORK ---- */
+    #work { padding: var(--space-2xl) 0 var(--space-md); scroll-margin-top: 4.5rem; }
+    .section-inner { max-width: 80rem; margin: 0 auto; padding: 0 var(--space-md); }
+
+    .work-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: var(--space-md);
+      flex-wrap: wrap; margin-bottom: var(--space-xl);
+    }
+    .section-heading {
+      font-family: "skeena-display", serif; font-weight: 700;
+      /* 42px at 375 → 64px at 1440 */
+      font-size: clamp(2.625rem, 2.07vw + 2.14rem, 4rem);
+      line-height: 1; letter-spacing: -.01em; margin: 0;
+    }
+    .work-desc {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.65; color: var(--ink-soft);
+      max-width: 34ch; margin: 0 0 6px;
+    }
+    /* Column count is a structural change, so it flips via the container-query
+       toggles rather than being clamped — 3 → 2 → 1 as the container shrinks. */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(calc(var(--r-large) * 3 + var(--r-medium) * 2 + var(--r-small) * 1), minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+    /* Slight vertical offset on the middle card — a quiet echo of the
+       collage motif. Scales off entirely once the grid drops to 2 columns,
+       since the stagger only reads correctly against a 3-up row. */
+    .proj-card:nth-child(2) { transform: translateY(calc(46px * var(--r-large))); }
+    .proj-card { text-decoration: none; display: block; color: inherit; }
+    .proj-img-wrap {
+      overflow: clip; border-radius: 2px; aspect-ratio: 4 / 5;
+      background: var(--card);
+    }
+    .proj-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .9s cubic-bezier(.2,.6,.2,1);
+    }
+    .proj-card:hover .proj-img-wrap img { transform: scale(1.06); }
+    .proj-name {
+      font-family: "skeena-display", serif; font-weight: 700;
+      font-size: 1.3125rem; margin: var(--space-2xs) 0 7px; color: var(--ink);
+      transition: color .25s;
+    }
+    .proj-card:hover .proj-name { color: var(--terracotta); }
+    .proj-type {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.75rem; letter-spacing: .04em;
+      color: #9A8878; margin: 0;
+    }
+
+    /* ---- FEATURED PROJECT: collaged / offset composition ---- */
+    #featured { padding: var(--space-3xl) 0 var(--space-2xl); scroll-margin-top: 4.5rem; position: relative; overflow: visible; }
+    .featured-inner {
+      max-width: 80rem; margin: 0 auto; padding: 0 var(--space-md);
+      display: grid; grid-template-columns: var(--two-col);
+      gap: var(--space-md) var(--space-xl); align-items: start;
+    }
+    .featured-collage { position: relative; }
+    .featured-photo { margin: 0; }
+    /* aspect-ratio (not a fixed px height) is what actually keeps this photo's
+       proportions identical at every viewport width — the container just
+       gets narrower and the image scales with it. */
+    .featured-photo img {
+      width: 100%; aspect-ratio: 14 / 15;
+      object-fit: cover; border-radius: 2px;
+      box-shadow: 0 34px 70px -34px rgba(26,22,20,.45);
+    }
+    /* The overlapping meta card — the collage's second "layer". Position
+       flips from an absolute overlap to a static stacked row once the
+       column collapses, via --meta-position/--meta-width/--meta-layout. */
+    .featured-meta-card {
+      position: var(--meta-position); left: -3.5rem; bottom: -3.5rem;
+      width: var(--meta-width); background: var(--card);
+      padding: var(--space-sm) var(--space-xs);
+      box-shadow: 0 26px 60px -28px rgba(26,22,20,.35);
+      border: 1px solid var(--line);
+      display: var(--meta-layout); gap: var(--space-md);
+      margin-top: -1px;
+    }
+    .featured-meta-card .meta-row + .meta-row { margin-top: var(--space-xs); }
+    :root { --meta-row-margin: var(--space-xs); }
+    @container (width < 900px) {
+      .featured-meta-card .meta-row + .meta-row { margin-top: 0; }
+    }
+    .featured-squiggle { top: -4rem; right: 2.5rem; width: 9.375rem; opacity: .5; }
+
+    .featured-copy { padding-top: var(--space-2xs); }
+    .featured-label {
+      font-family: "aquavit", sans-serif; font-weight: 300;
+      font-size: 0.625rem; letter-spacing: .22em; text-transform: uppercase;
+      color: #9A8878; margin: 0 0 var(--space-xs);
+    }
+    .featured-title {
+      font-family: "skeena-display", serif; font-weight: 700;
+      /* 36px at 375 → 52px at 1440 */
+      font-size: clamp(2.25rem, 1.5vw + 1.9rem, 3.25rem);
+      line-height: 0.94; letter-spacing: -.01em; margin: 0 0 var(--space-xs);
+    }
+    .featured-title em { font-style: italic; font-weight: 400; color: var(--terracotta); }
+    .featured-body {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.8; color: var(--ink-soft);
+    }
+    .meta-label {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.6875rem; letter-spacing: .1em; text-transform: uppercase;
+      color: #9A8878; margin: 0 0 6px;
+    }
+    .meta-val {
+      font-family: "skeena-display", serif; font-weight: 700;
+      font-size: 1.125rem; margin: 0;
+    }
+
+    /* ---- PROCESS ---- */
+    #process {
+      padding: var(--space-xl) 0 var(--space-2xl); scroll-margin-top: 4.5rem;
+      background: var(--stone-deep);
+    }
+    .process-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: var(--space-md);
+      flex-wrap: wrap; margin-bottom: var(--space-xl);
+    }
+    .process-desc {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.65; color: var(--ink-soft);
+      max-width: 36ch; margin: 0 0 6px;
+    }
+    /* Same structural pattern as .work-grid: 3 columns until the container
+       can no longer fit three legible steps side by side, then 1. */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(calc(var(--r-large) * 3 + var(--r-medium) * 1 + var(--r-small) * 1), minmax(0, 1fr));
+      gap: var(--space-lg);
+    }
+    .step-num {
+      font-family: "skeena-display", serif; font-weight: 700;
+      font-size: clamp(3rem, 3vw + 2.3rem, 5rem);
+      line-height: 1; color: #D8C4B2; margin: 0 0 var(--space-2xs);
+    }
+    .step-name {
+      font-family: "skeena-display", serif; font-weight: 700;
+      font-size: 1.625rem; margin: 0 0 var(--space-3xs);
+    }
+    .step-body {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(0.9375rem, 0.12vw + 0.9rem, 1rem); line-height: 1.78; color: var(--ink-soft); margin: 0;
+    }
+
+    /* ---- ABOUT ---- */
+    #about { padding: var(--space-2xl) 0; scroll-margin-top: 4.5rem; }
+    .about-inner {
+      max-width: 80rem; margin: 0 auto; padding: 0 var(--space-md);
+      display: grid; grid-template-columns: var(--about-col);
+      gap: var(--space-xl); align-items: center;
+    }
+    .about-eyebrow {
+      font-family: "arboria", sans-serif; font-weight: 600;
+      font-size: 0.6875rem; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--terracotta); margin: 0 0 var(--space-2xs);
+    }
+    .about-name {
+      font-family: "skeena-display", serif; font-weight: 700;
+      /* 38px at 375 → 54px at 1440 */
+      font-size: clamp(2.375rem, 1.5vw + 2.03rem, 3.375rem);
+      line-height: 0.94; letter-spacing: -.01em; margin: 0 0 var(--space-xs);
+    }
+    .about-name em { font-style: italic; font-weight: 400; color: var(--terracotta); }
+    .about-body {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 1.0625rem; line-height: 1.8; color: var(--ink-soft);
+      max-width: 50ch; margin: 0 0 var(--space-2xs);
+    }
+    /* Hairline-ruled focus list — reads like the "We Offer" index on an
+       editorial studio site, not a stat row. */
+    .about-caps { margin-top: var(--space-sm); max-width: 34rem; }
+    .caps-intro {
+      font-family: "skeena-display", serif; font-style: italic; font-weight: 400;
+      font-size: 1.0625rem; color: var(--ink); margin: 0 0 var(--space-3xs);
+    }
+    .caps-row {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.6875rem; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--ink-soft); margin: 0;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .caps-row:first-of-type { border-top: 1px solid var(--line); }
+    .about-photo { margin: 0; }
+    /* Same aspect-ratio approach as the featured photo — proportion holds
+       automatically as the column narrows, no breakpoint-specific height. */
+    .about-photo img {
+      width: 100%; aspect-ratio: 5 / 6;
+      object-fit: cover; object-position: center 30%;
+      border-radius: 2px;
+      box-shadow: 0 30px 60px -32px rgba(26,22,20,.4);
+    }
+
+    /* ---- BOOKING CTA ---- */
+    #contact { background: var(--terracotta); scroll-margin-top: 4.5rem; }
+    .contact-inner {
+      max-width: 80rem; margin: 0 auto;
+      padding: var(--space-2xl) var(--space-md); text-align: center;
+    }
+    .contact-headline {
+      font-family: "skeena-display", serif; font-weight: 700;
+      /* 44px at 375 → 72px at 1440 */
+      font-size: clamp(2.75rem, 2.63vw + 2.13rem, 4.5rem);
+      line-height: 0.92; letter-spacing: -.01em; color: #FFFFFF;
+      margin: 0 0 var(--space-xs); max-width: 16ch;
+      margin-left: auto; margin-right: auto;
+    }
+    .contact-headline em { font-style: italic; font-weight: 400; }
+    .btn-book {
+      display: inline-flex; align-items: center;
+      font-family: "arboria", sans-serif; font-weight: 600;
+      font-size: 0.8125rem; letter-spacing: .07em; text-transform: uppercase;
+      text-decoration: none; color: var(--ink);
+      background: #FFFFFF; padding: 1.125rem 2.75rem;
+      transition: transform .25s, box-shadow .25s;
+      box-shadow: 0 12px 30px -16px rgba(26,22,20,.5);
+    }
+    .btn-book:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px -16px rgba(26,22,20,.6);
+    }
+    .contact-note {
+      font-family: "arboria", sans-serif; font-weight: 300;
+      font-size: 0.8125rem; letter-spacing: .04em;
+      color: rgba(255,255,255,.72); margin: var(--space-2xs) 0 0;
+    }
+
+    /* ---- FOOTER ---- */
+    footer { background: var(--ink); color: #FFFFFF; }
+    .footer-inner {
+      max-width: 80rem; margin: 0 auto;
+      padding: var(--space-xl) var(--space-md) var(--space-md);
+    }
+    .footer-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: var(--space-md); flex-wrap: wrap;
+      padding-bottom: var(--space-md);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .footer-brand p:first-child {
+      font-family: "skeena-display", serif; font-weight: 700;
+      font-size: 0.875rem; letter-spacing: .18em; margin: 0 0 var(--space-3xs);
+    }
+    .footer-brand p:last-child {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.875rem; line-height: 1.6;
+      color: rgba(255,255,255,.55); max-width: 32ch; margin: 0;
+    }
+    .footer-cols { display: flex; gap: var(--space-lg); flex-wrap: wrap; }
+    .footer-col { display: flex; flex-direction: column; gap: var(--space-3xs); }
+    .footer-link {
+      font-size: 0.90625rem; text-decoration: none;
+      color: rgba(255,255,255,.72); transition: color .2s;
+    }
+    .footer-link:hover { color: var(--terracotta); }
+    .footer-bottom {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: var(--space-xs); flex-wrap: wrap;
+      padding-top: var(--space-2xs);
+    }
+    .footer-bottom p { font-size: 0.8125rem; color: rgba(255,255,255,.45); margin: 0; }
+
+    /* ---- REVEAL ANIMATION ---- */
+    .js-ready [data-reveal] {
+      opacity: 0; transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .js-ready [data-reveal].revealed { opacity: 1; transform: none; }
+    .js-ready .proj-card:nth-child(2)[data-reveal].revealed { transform: translateY(calc(46px * var(--r-large))); }
+    @media (prefers-reduced-motion: reduce) {
+      .js-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ---- Remaining viewport-specific tweaks (not fluid-scale concerns) ---- */
+    @container (width < 600px) {
+      .hero-actions { flex-direction: column; gap: var(--space-2xs); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="siteNav">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">ASH RIFFE</a>
+      <div class="nav-links">
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#process" class="nav-link">Process</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+
+  <div class="sheet">
+
+    <!-- HERO: framed photo, headline overlaid -->
+    <section id="hero">
+      <figure class="hero-photo">
+        <img src="assets/hero-living.webp" alt="Open-plan living room with warm wood ceiling and pendant lighting" loading="eager">
+      </figure>
+      <div class="hero-scrim"></div>
+      <div class="hero-content">
+        <svg class="hero-mark" viewBox="0 0 160 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-reveal>
+          <path d="M4 62C22 40 30 84 48 66C64 50 54 18 76 16C100 14 92 60 118 58C136 56.6 138 32 156 30" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <p class="hero-eyebrow" data-reveal>Interior Architecture &middot; Seattle, WA</p>
+        <h1 class="hero-headline" data-reveal>Design built around how you <em>actually</em> live.</h1>
+        <p class="hero-body" data-reveal>Considered, livable spaces that fit the way you really move through your day. Nothing borrowed from a template.</p>
+        <div class="hero-actions" data-reveal>
+          <a href="#work" class="btn-text">View Projects &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CREDIBILITY STRIP -->
+    <div class="strip">
+      <div class="strip-inner">
+        <span class="strip-text">Interior Architecture</span>
+        <span class="strip-dot">&middot;</span>
+        <span class="strip-text">Seattle, WA</span>
+        <span class="strip-dot">&middot;</span>
+        <span class="strip-text">Residential</span>
+        <span class="strip-dot">&middot;</span>
+        <span class="strip-text">Commercial</span>
+        <span class="strip-dot">&middot;</span>
+        <span class="strip-text">Available 2026</span>
+      </div>
+    </div>
+
+    <!-- SELECTED WORK -->
+    <section id="work">
+      <div class="section-inner">
+        <div class="section-divider" aria-hidden="true" style="padding-bottom:var(--space-lg)">
+          <svg viewBox="0 0 170 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 40C24 14 38 58 58 36C76 16 70 4 92 8C114 12 106 44 130 40C146 37.4 150 20 166 18" stroke="#C07B68" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="work-header" data-reveal>
+          <h2 class="section-heading">Selected Work</h2>
+          <p class="work-desc">A few recent residential and commercial projects, from first sketch to finished room.</p>
+        </div>
+        <div class="work-grid">
+          <a href="#featured" class="proj-card" data-reveal>
+            <div class="proj-img-wrap">
+              <img src="assets/healing-womb.webp" alt="The Healing Womb — trauma-informed housing design" loading="lazy">
+            </div>
+            <h3 class="proj-name">The Healing Womb</h3>
+            <p class="proj-type">Housing Design &middot; Concept</p>
+          </a>
+          <a href="#featured" class="proj-card" data-reveal>
+            <div class="proj-img-wrap">
+              <img src="assets/library.webp" alt="Alden Fine Arts Library of the Future — academic design concept" loading="lazy">
+            </div>
+            <h3 class="proj-name">Alden Fine Arts Library</h3>
+            <p class="proj-type">Academic &middot; Concept</p>
+          </a>
+          <a href="#featured" class="proj-card" data-reveal>
+            <div class="proj-img-wrap">
+              <img src="assets/daycare.webp" alt="Bright Start Daycare colorful 3D interior render" loading="lazy">
+            </div>
+            <h3 class="proj-name">Bright Start Daycare</h3>
+            <p class="proj-type">Commercial &middot; Concept</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECT: collaged / offset composition -->
+    <section id="featured">
+      <div class="featured-inner">
+        <div class="featured-collage" data-reveal>
+          <svg class="squiggle featured-squiggle" viewBox="0 0 170 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 40C24 14 38 58 58 36C76 16 70 4 92 8C114 12 106 44 130 40C146 37.4 150 20 166 18" stroke="#1A1614" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+          <figure class="featured-photo">
+            <img src="assets/theater.webp" alt="Ridges Theater moodboard with terra cotta, mauve brick, and copper tones" loading="lazy">
+          </figure>
+          <div class="featured-meta-card">
+            <div class="meta-row">
+              <p class="meta-label">Scope</p>
+              <p class="meta-val">Performing Arts</p>
+            </div>
+            <div class="meta-row">
+              <p class="meta-label">Type</p>
+              <p class="meta-val">Concept</p>
+            </div>
+            <div class="meta-row">
+              <p class="meta-label">Year</p>
+              <p class="meta-val">2025</p>
+            </div>
+          </div>
+        </div>
+        <div class="featured-copy" data-reveal>
+          <p class="featured-label">Featured Project</p>
+          <h2 class="featured-title">Built around<br>colour and<br><em>material honesty.</em></h2>
+          <p class="featured-body">The Ridges Theater called for a palette that holds up under stage light and house light alike. Terra cotta, mauve brick, and brushed copper thread through every surface, so the space feels richly considered before a single act begins.</p>
+          <p class="featured-body" style="margin-top:20px">Material choices that serve the architecture, not just the moment.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="section-inner">
+        <div class="process-header" data-reveal>
+          <h2 class="section-heading">How it works</h2>
+          <p class="process-desc">Three steps, from the first conversation to the day you move back in.</p>
+        </div>
+        <div class="process-steps">
+          <div data-reveal>
+            <p class="step-num">01</p>
+            <h3 class="step-name">Listen</h3>
+            <p class="step-body">We start with how you live and work in the space. Routines, frustrations, the things you love. No assumptions.</p>
+          </div>
+          <div data-reveal>
+            <p class="step-num">02</p>
+            <h3 class="step-name">Design</h3>
+            <p class="step-body">Plans, materials, and details come together into one clear direction you can see and feel before anything is built.</p>
+          </div>
+          <div data-reveal>
+            <p class="step-num">03</p>
+            <h3 class="step-name">Build</h3>
+            <p class="step-body">I work alongside your builders and makers to keep the vision intact, from first cut to final styling.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-inner">
+        <div data-reveal>
+          <p class="about-eyebrow">About</p>
+          <h2 class="about-name">Trained to see<br>what <em>most</em><br>people miss.</h2>
+          <p class="about-body">An interior architecture designer based in Seattle, graduating in 2026. Ash works across residential and commercial spaces, with a focus on how rooms actually get used: where the light lands, where people gather, where things go.</p>
+          <p class="about-body">Her approach is classic with an edge. Clean lines, honest materials, and a few moments that make a space feel like it could only belong to you.</p>
+          <div class="about-caps">
+            <p class="caps-intro">Areas of focus:</p>
+            <p class="caps-row">Residential &amp; Commercial Design</p>
+            <p class="caps-row">Furniture &amp; Lighting Procurement</p>
+            <p class="caps-row">Concept Development &amp; 3D Visualization</p>
+            <p class="caps-row">Historic Preservation &amp; Biophilic Design</p>
+          </div>
+        </div>
+        <figure class="about-photo" data-reveal>
+          <img src="assets/portrait.webp" alt="Ash Riffe in a long black coat in front of the Arc de Triomphe in Paris" loading="lazy">
+        </figure>
+      </div>
+      <div class="section-divider" aria-hidden="true" style="padding-top:var(--space-2xl)">
+        <svg viewBox="0 0 170 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 40C24 14 38 58 58 36C76 16 70 4 92 8C114 12 106 44 130 40C146 37.4 150 20 166 18" stroke="#C07B68" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- BOOKING CTA -->
+    <section id="contact">
+      <div class="contact-inner" data-reveal>
+        <h2 class="contact-headline">Ready to start the <em>conversation?</em></h2>
+        <a href="https://tidycal.com" target="_blank" rel="noopener" class="btn-book">Book a Free Consultation</a>
+        <p class="contact-note">via TidyCal &middot; 5 minutes &middot; No cost</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <p>ASH RIFFE</p>
+            <p>Interior architecture for considered homes and spaces. Seattle, WA.</p>
+          </div>
+          <div class="footer-cols">
+            <div class="footer-col">
+              <a href="#work" class="footer-link">Work</a>
+              <a href="#process" class="footer-link">Process</a>
+              <a href="#about" class="footer-link">About</a>
+            </div>
+            <div class="footer-col">
+              <a href="#contact" class="footer-link">Contact</a>
+              <a href="mailto:hello@ashriffe.com" class="footer-link">hello@ashriffe.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Ash Riffe. All rights reserved.</p>
+          <p>Seattle, WA</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ---- SCROLL REVEAL ---- */
+    document.documentElement.classList.add('js-ready');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

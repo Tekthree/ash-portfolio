@@ -1,0 +1,8 @@
+# Dependencies + build output (relume-compare Vite app)
+node_modules/
+relume-compare/dist/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log

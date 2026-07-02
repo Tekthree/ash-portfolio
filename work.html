@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work | Ash Riffe</title>
+  <meta name="description" content="Selected residential and commercial projects by Ash Riffe Interior Architecture, Seattle.">
+  <link rel="stylesheet" href="https://use.typekit.net/nil8axf.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: #F6F1E9; }
+    :root {
+      --paper: #F6F1E9; --paper-deep: #EEE5D8;
+      --ink: #1A1614; --ink-soft: #6B5E58;
+      --terracotta: #C07B68; --blush: #EDD4CB;
+      --line: rgba(26,22,20,.14); --line-light: rgba(246,241,233,.16);
+      --serif: "Cormorant Garamond", "skeena-display", serif;
+      --space-3xs: clamp(0.75rem, 0.38vw + 0.66rem, 1rem);
+      --space-2xs: clamp(1rem, 0.75vw + 0.82rem, 1.5rem);
+      --space-xs:  clamp(1.25rem, 1.13vw + 0.99rem, 2rem);
+      --space-sm:  clamp(1.5rem, 1.88vw + 1.06rem, 2.75rem);
+      --space-md:  clamp(2rem, 3vw + 1.3rem, 4rem);
+      --space-lg:  clamp(2.5rem, 4.51vw + 1.44rem, 5.5rem);
+      --space-xl:  clamp(3.5rem, 4.51vw + 2.44rem, 6.5rem);
+      --space-2xl: clamp(4rem, 8.08vw + 2.11rem, 9.375rem);
+      --r-large: 1; --r-medium: 0; --r-small: 0;
+      --pair-col: 1fr 1fr;
+      --feature-col: 1.15fr .85fr;
+    }
+    body {
+      margin: 0; background-color: var(--paper);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      color: var(--ink); font-family: "arboria", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      container-type: inline-size; width: 100%; overflow-x: clip;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    ::selection { background: var(--blush); color: var(--ink); }
+    @container (width < 900px) {
+      * { --r-large: 0; --r-medium: 1; --pair-col: 1fr; --feature-col: 1fr; }
+    }
+    @container (width < 600px) { * { --r-medium: 0; --r-small: 1; } }
+    .contain { max-width: 84rem; margin: 0 auto; padding: 0 var(--space-md); }
+    #siteNav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: rgba(246,241,233,.9);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 84rem; margin: 0 auto; padding: var(--space-2xs) var(--space-md);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(1.125rem, 0.56vw + 1rem, 1.5rem); letter-spacing: .2em;
+      text-decoration: none; color: var(--ink);
+    }
+    .nav-links { display: flex; align-items: center; gap: clamp(0.875rem, 2.2vw, 2.75rem); }
+    .nav-link {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(0.6875rem, 0.35vw + 0.61rem, 0.8125rem); letter-spacing: .03em;
+      text-decoration: none; color: var(--ink);
+      opacity: .82; transition: opacity .2s, color .2s;
+    }
+    .nav-link:hover, .nav-link.is-here { opacity: 1; color: var(--terracotta); }
+    .js-ready [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .js-ready [data-reveal].revealed { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .js-ready [data-reveal] { opacity: 1; transform: none; transition: none; } }
+    footer { background: var(--ink); color: var(--paper); margin-top: var(--space-2xl); }
+    .footer-inner {
+      max-width: 84rem; margin: 0 auto; padding: var(--space-xl) var(--space-md);
+      text-align: center;
+    }
+    .footer-headline {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(2rem, 1.88vw + 1.56rem, 3.25rem);
+      line-height: 0.96; margin: 0 0 var(--space-sm);
+    }
+    .footer-headline em { font-style: italic; font-weight: 400; color: var(--blush); }
+    .btn-book {
+      display: inline-flex; align-items: center;
+      font-family: "arboria", sans-serif; font-weight: 600;
+      font-size: 0.8125rem; letter-spacing: .07em; text-transform: uppercase;
+      text-decoration: none; color: var(--ink); background: var(--paper);
+      padding: 1.125rem 2.75rem; transition: background .25s, transform .25s;
+    }
+    .btn-book:hover { background: var(--blush); transform: translateY(-2px); }
+    .footer-meta {
+      margin-top: var(--space-sm); padding-top: var(--space-sm);
+      border-top: 1px solid var(--line-light);
+      display: flex; justify-content: center; gap: var(--space-md); flex-wrap: wrap;
+      font-size: 0.8125rem; color: rgba(246,241,233,.5);
+    }
+    .footer-meta a { text-decoration: none; color: rgba(246,241,233,.7); }
+    .footer-meta a:hover { color: var(--terracotta); }
+
+    #workhead { padding: clamp(7rem, 11vw, 11.5rem) 0 var(--space-lg); }
+    .work-eyebrow {
+      font-family: "arboria", sans-serif; font-size: 0.6875rem;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--ink-soft); margin: 0 0 var(--space-xs);
+    }
+    .work-title {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(2.75rem, 3.38vw + 1.96rem, 5rem);
+      line-height: 0.96; letter-spacing: -.015em; margin: 0 0 var(--space-2xs);
+    }
+    .work-title em { font-style: normal; text-transform: uppercase; letter-spacing: .05em; color: var(--terracotta); }
+    .work-title i { font-style: italic; font-weight: 500; }
+    .work-intro {
+      font-family: "arboria", sans-serif;
+      font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.75;
+      color: var(--ink-soft); max-width: 52ch; margin: 0;
+    }
+    #grid { padding: var(--space-lg) 0 0; }
+    .feature-card { display: grid; grid-template-columns: var(--feature-col); gap: var(--space-md) var(--space-xl); align-items: end; text-decoration: none; margin-bottom: var(--space-xl); }
+    .feature-card figure, .card figure { margin: 0; overflow: clip; }
+    .feature-card img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; transition: transform .9s cubic-bezier(.2,.6,.2,1); }
+    .feature-card:hover img, .card:hover img { transform: scale(1.045); }
+    .card-num {
+      font-family: "aquavit", sans-serif; font-weight: 300;
+      font-size: 0.6875rem; letter-spacing: .26em; color: var(--terracotta); margin: 0 0 var(--space-3xs);
+    }
+    .card-title {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.5rem, 1.13vw + 1.24rem, 2.25rem);
+      line-height: 1.05; letter-spacing: .04em; text-transform: uppercase;
+      margin: 0 0 var(--space-3xs); color: var(--ink);
+      transition: color .25s;
+    }
+    .feature-card:hover .card-title, .card:hover .card-title { color: var(--terracotta); }
+    .card-type {
+      font-family: "arboria", sans-serif; font-size: 0.6875rem;
+      letter-spacing: .14em; text-transform: uppercase; color: #9A8878; margin: 0;
+    }
+    .cards { display: grid; grid-template-columns: var(--pair-col); gap: var(--space-xl) var(--space-md); }
+    .card { text-decoration: none; }
+    .card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .9s cubic-bezier(.2,.6,.2,1); }
+    .card figcaption, .feature-caption { padding-top: var(--space-2xs); }
+</style>
+</head>
+<body>
+  <nav id="siteNav">
+    <div class="nav-inner">
+      <a href="concept-b.html" class="nav-logo">ASH RIFFE</a>
+      <div class="nav-links">
+        <a href="work.html" class="nav-link is-here">Work</a>
+        <a href="concept-b.html#ethos" class="nav-link">Ethos</a>
+        <a href="concept-b.html#about" class="nav-link">About</a>
+        <a href="concept-b.html#contact" class="nav-link">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="workhead">
+    <div class="contain">
+      <p class="work-eyebrow" data-reveal>Portfolio</p>
+      <h1 class="work-title" data-reveal><i>The</i> <em>work.</em></h1>
+      <p class="work-intro" data-reveal>Residential and commercial projects, from a built home on the California coast to concepts for housing, libraries, workplaces, and hospitality. Each tells a story of creativity, collaboration, and results.</p>
+    </div>
+  </section>
+
+  <section id="grid">
+    <div class="contain">
+      <a class="feature-card" href="work/carmel.html" data-reveal>
+        <figure>
+          <img src="assets/projects/carmel/01.jpg" alt="Carmel by the Sea cover" loading="eager">
+        </figure>
+        <div class="feature-caption">
+          <p class="card-num">01</p>
+          <h2 class="card-title">Carmel by the Sea</h2>
+          <p class="card-type">Residential &middot; Built Work</p>
+        </div>
+      </a>
+      <div class="cards">
+        <a class="card" href="work/healing-womb.html" data-reveal>
+          <figure>
+            <img src="assets/projects/healing-womb/01.jpg" alt="The Healing Womb cover" loading="lazy">
+            <figcaption>
+              <p class="card-num">02</p>
+              <h2 class="card-title">The Healing Womb</h2>
+              <p class="card-type">Housing Design &middot; Concept</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a class="card" href="work/alden-library.html" data-reveal>
+          <figure>
+            <img src="assets/projects/alden-library/01.jpg" alt="Alden Fine Art Library cover" loading="lazy">
+            <figcaption>
+              <p class="card-num">03</p>
+              <h2 class="card-title">Alden Fine Art Library</h2>
+              <p class="card-type">Academic &middot; Concept</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a class="card" href="work/next-law-firm.html" data-reveal>
+          <figure>
+            <img src="assets/projects/next-law-firm/01.jpg" alt="Next Law Firm cover" loading="lazy">
+            <figcaption>
+              <p class="card-num">04</p>
+              <h2 class="card-title">Next Law Firm</h2>
+              <p class="card-type">Commercial &middot; Concept</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a class="card" href="work/ridges-commercial.html" data-reveal>
+          <figure>
+            <img src="assets/projects/ridges-commercial/01.jpg" alt="The Ridges: Commercial Spaces cover" loading="lazy">
+            <figcaption>
+              <p class="card-num">05</p>
+              <h2 class="card-title">The Ridges: Commercial Spaces</h2>
+              <p class="card-type">Commercial &middot; Concept</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a class="card" href="work/ridges-residential.html" data-reveal>
+          <figure>
+            <img src="assets/projects/ridges-residential/01.jpg" alt="The Ridges: Residential Spaces cover" loading="lazy">
+            <figcaption>
+              <p class="card-num">06</p>
+              <h2 class="card-title">The Ridges: Residential Spaces</h2>
+              <p class="card-type">Residential &middot; Concept</p>
+            </figcaption>
+          </figure>
+        </a>
+        <a class="card" href="work/aracari.html" data-reveal>
+          <figure>
+            <img src="assets/projects/aracari/01.jpg" alt="The Aracari Cocktail Bar & Bistro cover" loading="lazy">
+            <figcaption>
+              <p class="card-num">07</p>
+              <h2 class="card-title">The Aracari Cocktail Bar &amp; Bistro</h2>
+              <p class="card-type">Hospitality &middot; Concept</p>
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner" data-reveal>
+      <h2 class="footer-headline">Ready to start the <em>conversation?</em></h2>
+      <a href="https://tidycal.com" target="_blank" rel="noopener" class="btn-book">Book a Free Consultation</a>
+      <div class="footer-meta">
+        <p style="margin:0">&copy; 2026 Ash Riffe</p>
+        <a href="mailto:hello@ashriffe.com">hello@ashriffe.com</a>
+        <p style="margin:0">Seattle, WA</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js-ready');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('revealed'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

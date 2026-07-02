@@ -1,0 +1,301 @@
+{
+ "alden-library": [
+  {
+   "file": "alden-library/01.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/406875ce-b6a2-4e79-a480-1ac6c21dbc0e/TMScreenshot_2025.08.06-18.36.58.png",
+   "bytes": 600415
+  },
+  {
+   "file": "alden-library/02.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/9332cfe2-5ad1-4aba-b242-42995d037d3e/Screenshot+2026-02-20+at+12.29.50%E2%80%AFAM.png",
+   "bytes": 505901
+  },
+  {
+   "file": "alden-library/03.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/59805a9b-e836-4370-94ee-ac6885a544a4/Screenshot+2026-02-20+at+12.31.14%E2%80%AFAM.png",
+   "bytes": 326983
+  },
+  {
+   "file": "alden-library/04.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/31a253cc-47f9-4dca-a0bd-2f40405b90e0/TMScreenshot_2025.08.06-18.51.14.png",
+   "bytes": 399854
+  },
+  {
+   "file": "alden-library/05.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/d339892d-a1cb-406a-b3f2-2a92db39dca8/Screenshot+2026-02-20+at+12.34.30%E2%80%AFAM.png",
+   "bytes": 274803
+  },
+  {
+   "file": "alden-library/06.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/554ae27b-cb7f-41a7-a37c-21d818a23b8a/Screenshot+2026-02-20+at+12.33.01%E2%80%AFAM.png",
+   "bytes": 166641
+  },
+  {
+   "file": "alden-library/07.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/35305fe0-ee13-483c-86b0-561de7dbb5fe/Screenshot+2026-02-20+at+12.37.17%E2%80%AFAM.png",
+   "bytes": 410073
+  },
+  {
+   "file": "alden-library/08.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/6e07fd53-b523-4162-be05-cff8e9cccbaa/TMScreenshot_2025.08.06-19.02.09.png",
+   "bytes": 641565
+  },
+  {
+   "file": "alden-library/09.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/1f98ad21-a4dc-4595-ac87-d358764fd578/Screenshot+2026-02-20+at+12.38.04%E2%80%AFAM.png",
+   "bytes": 333530
+  },
+  {
+   "file": "alden-library/10.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/8c2455bf-c556-413a-9244-39c560c55422/Screenshot+2026-02-20+at+12.36.31%E2%80%AFAM.png",
+   "bytes": 529744
+  }
+ ],
+ "aracari": [
+  {
+   "file": "aracari/01.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/80483ee5-63c2-44fc-b504-f2928abf48d0/Screenshot+2025-04-29+at+2.21.53+PM.png",
+   "bytes": 562205
+  },
+  {
+   "file": "aracari/02.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/8afb2820-1f5d-4d1d-995c-60b840034b74/Screenshot+2025-04-29+at+2.26.19+PM.png",
+   "bytes": 285384
+  },
+  {
+   "file": "aracari/03.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/42fc600c-b87e-41dd-9783-78207ca6eb6c/Screenshot+2025-04-29+at+2.23.44+PM.png",
+   "bytes": 570893
+  },
+  {
+   "file": "aracari/04.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/de89100b-f705-4736-8cba-7f3db198c081/Screenshot+2025-04-29+at+2.22.46+PM.png",
+   "bytes": 490222
+  },
+  {
+   "file": "aracari/05.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/f86cc0c7-2408-4625-b2d5-7b9ce8394fbf/Screenshot+2025-04-29+at+2.24.52+PM.png",
+   "bytes": 686029
+  }
+ ],
+ "carmel": [
+  {
+   "file": "carmel/01.jpg",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/e1ef66e3-509e-4f37-a35f-0f2f2a781014/6F06AA0F-DCF9-4946-88ED-5B5D03CD0855.jpeg",
+   "bytes": 100477
+  },
+  {
+   "file": "carmel/02.jpg",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/add627c6-ecc6-4062-89cb-3b30abe4f422/7E8AA3CC-E6A3-44B8-BD25-B1ACF1F45AA7.jpeg",
+   "bytes": 80899
+  },
+  {
+   "file": "carmel/03.jpg",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/f78ca136-2002-44f8-9164-50058691d7f4/8C520833-1D6D-4767-A53E-94C01A0B7A3B.jpeg",
+   "bytes": 63018
+  },
+  {
+   "file": "carmel/04.jpg",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/809e5ffb-19ff-4e8f-9e82-8b6d8a83494a/9F542935-85F9-4A8D-9F3B-446336F2B86B_1_105_c.jpeg",
+   "bytes": 112001
+  }
+ ],
+ "healing-womb": [
+  {
+   "file": "healing-womb/01.jpg",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/1d59ae41-3eb2-46d4-a084-1e82d4920822/Presentation+Poster_+Mcilrath%2C+Ash.jpg",
+   "bytes": 353968
+  },
+  {
+   "file": "healing-womb/02.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/8ed81008-ed95-4f7d-a2ac-260169a195e1/Filename_2026.04.04-14.46.58.png",
+   "bytes": 965762
+  },
+  {
+   "file": "healing-womb/03.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/bffaa6d7-784a-4649-9a7b-00a3bb8cc51d/Filename_2026.04.04-12.07.57.png",
+   "bytes": 1305570
+  },
+  {
+   "file": "healing-womb/04.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/823452d4-c57b-4615-9c9d-3137d66c1fc3/Filename_2026.04.03-21.12.59.png",
+   "bytes": 671045
+  },
+  {
+   "file": "healing-womb/05.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/77d9a5eb-fc27-4e53-87d7-64df960bf708/TMScreenshot_2026.04.03-16.37.12.png",
+   "bytes": 624295
+  },
+  {
+   "file": "healing-womb/06.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/1f32ad6a-d1af-4fd7-b33c-6e5994434e85/Filename_2026.04.04-15.08.49.png",
+   "bytes": 3472997
+  },
+  {
+   "file": "healing-womb/07.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/dd31e409-0320-4ef4-9551-2ab2d2125cd5/Filename_2026.04.04-13.25.22.png",
+   "bytes": 915954
+  },
+  {
+   "file": "healing-womb/08.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/57b1a694-f55c-4e79-a201-96250d70d7ce/Filename_2026.04.03-18.29.55.png",
+   "bytes": 696956
+  },
+  {
+   "file": "healing-womb/09.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/73acec33-143c-4d08-87ff-ef88e9301a58/Filename_2026.04.04-12.38.40.png",
+   "bytes": 1075247
+  }
+ ],
+ "next-law-firm": [
+  {
+   "file": "next-law-firm/01.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/800e43b0-57b3-4763-a8fa-cfcdc5ccc809/Filename_2025.10.04-14.49.08.png",
+   "bytes": 870753
+  },
+  {
+   "file": "next-law-firm/02.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/1b1eed87-04eb-4784-ae32-b30a2dc172eb/Screenshot+2026-02-20+at+1.16.38%E2%80%AFAM.png",
+   "bytes": 276834
+  },
+  {
+   "file": "next-law-firm/03.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/fc6803c0-bee9-4eb7-a61b-bb24458f39d4/Screenshot+2026-02-20+at+1.17.25%E2%80%AFAM.png",
+   "bytes": 226497
+  },
+  {
+   "file": "next-law-firm/04.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/0768f812-529a-4b49-ba63-46dad260e734/Screenshot+2026-02-20+at+1.18.28%E2%80%AFAM.png",
+   "bytes": 190348
+  },
+  {
+   "file": "next-law-firm/05.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/90058d42-0327-4a5e-b157-cc4f3f7ee5cf/Screenshot+2026-02-20+at+1.18.04%E2%80%AFAM.png",
+   "bytes": 152723
+  },
+  {
+   "file": "next-law-firm/06.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/83914d53-3557-4e4d-a82c-752e1d001f39/Screenshot+2026-02-20+at+1.19.47%E2%80%AFAM.png",
+   "bytes": 146813
+  },
+  {
+   "file": "next-law-firm/07.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/30efcf42-1b20-44b9-94ab-02597ba31913/Screenshot+2026-02-20+at+1.20.33%E2%80%AFAM+1.png",
+   "bytes": 461716
+  },
+  {
+   "file": "next-law-firm/08.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/3e177f20-22fe-480d-8101-e110de2237c1/Screenshot+2026-02-20+at+1.27.22%E2%80%AFAM.png",
+   "bytes": 372594
+  },
+  {
+   "file": "next-law-firm/09.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/635625a7-df9f-4c9d-a36c-1c0c7accc301/Screenshot+2026-02-20+at+1.24.55%E2%80%AFAM.png",
+   "bytes": 313303
+  },
+  {
+   "file": "next-law-firm/10.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/7527b003-1401-48fa-80ad-8fcbc5fc90dd/Screenshot+2026-02-20+at+1.24.12%E2%80%AFAM.png",
+   "bytes": 305241
+  },
+  {
+   "file": "next-law-firm/11.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/05eba666-0803-4cb5-88cc-c35b5bfe0200/Screenshot+2026-02-20+at+1.23.41%E2%80%AFAM.png",
+   "bytes": 403695
+  },
+  {
+   "file": "next-law-firm/12.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/22f2f523-8834-428f-84e3-95e9aba93a09/Screenshot+2026-02-20+at+1.23.02%E2%80%AFAM.png",
+   "bytes": 342679
+  },
+  {
+   "file": "next-law-firm/13.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/fd9bae4f-5a44-48a3-95b6-4030f3e6f88e/Screenshot+2026-02-20+at+1.26.54%E2%80%AFAM.png",
+   "bytes": 348466
+  },
+  {
+   "file": "next-law-firm/14.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/b19f2cc1-8305-4edc-959f-8a1d5c77c7ea/Screenshot+2026-02-20+at+1.22.02%E2%80%AFAM.png",
+   "bytes": 384944
+  },
+  {
+   "file": "next-law-firm/15.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/1781748590820-JBBAE6NQNYMVD22BHKWG/Filename_2025.10.03-14.04.50.png",
+   "bytes": 777463
+  }
+ ],
+ "ridges-commercial": [
+  {
+   "file": "ridges-commercial/01.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/08f7ce92-11a5-48da-ba0e-b856fd31664b/Screenshot+2026-02-20+at+3.22.23%E2%80%AFPM.png",
+   "bytes": 473970
+  },
+  {
+   "file": "ridges-commercial/02.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/26100bf0-f552-43de-bc20-3617da73f847/Screenshot+2025-05-29+at+7.08.15+PM.png",
+   "bytes": 491521
+  },
+  {
+   "file": "ridges-commercial/03.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/d12431b2-6af3-4f79-be4a-66dfed8c6013/Screenshot+2026-02-19+at+10.51.43%E2%80%AFPM.png",
+   "bytes": 554573
+  },
+  {
+   "file": "ridges-commercial/04.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/2f9b1241-22c8-4401-b434-69414fd4b748/Screenshot+2026-02-19+at+11.05.44%E2%80%AFPM.png",
+   "bytes": 488088
+  },
+  {
+   "file": "ridges-commercial/05.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/c7f8e6fe-a074-41d1-8180-9e9ab53f7431/Screenshot+2026-02-19+at+11.06.34%E2%80%AFPM.png",
+   "bytes": 550455
+  }
+ ],
+ "ridges-residential": [
+  {
+   "file": "ridges-residential/01.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/0c3191de-6fd6-4d72-9691-2cacc829de97/Ridges_Bldg_3_Floors_1_%2B_2-1.rvt_2025-Jun-28_01-56-40AM-000_3D_View_2_png.png",
+   "bytes": 1334319
+  },
+  {
+   "file": "ridges-residential/02.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/397f5231-1679-4e52-a637-388bb9f8033b/Screenshot+2025-10-31+at+10.43.32+AM.png",
+   "bytes": 630863
+  },
+  {
+   "file": "ridges-residential/03.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/62fab881-b8b1-4512-8ef7-d532a8045386/Screenshot+2025-10-31+at+10.45.34+AM.png",
+   "bytes": 516249
+  },
+  {
+   "file": "ridges-residential/04.jpg",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/30ba147b-92a9-4da5-8fab-075efb879ae5/FLOOR+PLAN+SECOND+FLOOR+USE.jpg",
+   "bytes": 251780
+  },
+  {
+   "file": "ridges-residential/05.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/24b58c0b-e7e2-4952-9fdc-cfde5b018728/Screenshot+2025-10-31+at+10.49.29+AM.png",
+   "bytes": 568612
+  },
+  {
+   "file": "ridges-residential/06.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/54fc91e0-b895-4237-b080-7fa646827789/Screenshot+2025-10-31+at+10.51.24+AM.png",
+   "bytes": 594468
+  },
+  {
+   "file": "ridges-residential/07.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/f8a27439-5da4-46bc-9ac5-e28f3f61fab1/Screenshot+2025-10-31+at+10.52.20+AM.png",
+   "bytes": 536382
+  },
+  {
+   "file": "ridges-residential/08.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/70ef4ad9-e61b-4555-a766-bad84820c95f/Screenshot+2025-10-31+at+10.53.38+AM.png",
+   "bytes": 496238
+  },
+  {
+   "file": "ridges-residential/09.png",
+   "src": "https://images.squarespace-cdn.com/content/v1/6997db7f16dd14613ee720cc/1781749752678-AMM1YQO3Q5V8TMGK39AC/Screenshot%2B2026-02-20%2Bat%2B12.07.08%25E2%2580%25AFAM.png",
+   "bytes": 3638352
+  }
+ ]
+}
