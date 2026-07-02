@@ -70,23 +70,6 @@
     a { color: inherit; }
     ::selection { background: #DCC2B4; color: var(--ink); }
 
-    /* Texture: woven linen on the mat. A large, light crosshatch weave,
-       masked by a diagonal gradient so it breathes — present in the corners,
-       fading through the middle, back in again. Fixed so the light stays
-       still while the page scrolls through it. */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
-        repeating-linear-gradient(90deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.04) 3px 5px, transparent 5px 7px);
-      -webkit-mask-image: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.1) 45%, rgba(0,0,0,.1) 55%, rgba(0,0,0,1) 100%);
-      mask-image: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.1) 45%, rgba(0,0,0,.1) 55%, rgba(0,0,0,1) 100%);
-    }
-
     /* The sheet — the cream board the whole site sits on, inset from the
        mat on every side. The fixed nav doubles as the mat's top edge. */
     .sheet {
@@ -95,6 +78,24 @@
       background: var(--card);
       border: 1px solid var(--line);
       box-shadow: 0 30px 80px -40px rgba(26,22,20,.35);
+    }
+    /* Texture: a drafting grid across the entire sheet — the vellum an
+       interior architect actually draws on. It runs OVER every section,
+       so the same graph paper visibly ties hero, work, process, and about
+       together instead of each section floating on its own background.
+       A repeating vertical mask makes it breathe in and out as you scroll.
+       Hairlines vanish naturally into the dark and terracotta bands. */
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(26,22,20,.045) 0 1px, transparent 1px 3.5rem),
+        repeating-linear-gradient(90deg, rgba(26,22,20,.045) 0 1px, transparent 1px 3.5rem);
+      -webkit-mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,.15) 35rem, rgba(0,0,0,1) 70rem);
+      mask-image: repeating-linear-gradient(180deg, rgba(0,0,0,1) 0rem, rgba(0,0,0,.15) 35rem, rgba(0,0,0,1) 70rem);
     }
 
     @container (width < 900px) {
@@ -122,12 +123,7 @@
     #siteNav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 50;
       height: var(--nav-h);
-      /* Same linen weave as the mat — the nav IS the mat's top edge */
-      background-color: var(--stone);
-      background-image:
-        repeating-linear-gradient(0deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
-        repeating-linear-gradient(90deg, rgba(26,22,20,.018) 0 1px, transparent 1px 7px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.04) 3px 5px, transparent 5px 7px);
+      background: var(--stone);
       display: flex; align-items: center;
     }
     .nav-inner {
