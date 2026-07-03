@@ -130,18 +130,20 @@
        photo — the page reads as one composed spread, not two columns. */
     .hero-headline {
       font-family: var(--serif); font-weight: 600;
-      /* 56px at 375 → 108px at 1440 (Lumos slope+intercept form) */
-      font-size: clamp(3.85rem, 5.37vw + 2.6rem, 7.4rem);
-      line-height: 0.95; letter-spacing: -.015em;
+      /* 44px at 375 → 84px at 1440 (Lumos slope+intercept form) */
+      font-size: clamp(2.75rem, 3.76vw + 1.87rem, 5.25rem);
+      line-height: 0.98; letter-spacing: -.015em;
       margin: 0 0 var(--space-sm);
-      margin-right: calc(-1 * clamp(0rem, 14vw, 13rem) * var(--r-large));
+      /* A modest reach across the gutter — one letterform's worth, so the
+         crossing reads deliberate at every width instead of colliding */
+      margin-right: calc(-1 * clamp(0rem, 4vw, 3.5rem) * var(--r-large));
       position: relative;
     }
     .hero-headline .t-ital { font-style: italic; font-weight: 500; color: var(--terracotta); }
     .hero-headline .t-caps { text-transform: uppercase; letter-spacing: .06em; font-weight: 500; font-size: .78em; line-height: 1.08; display: inline-block; }
     .hero-squiggle {
       position: absolute; z-index: -1;
-      top: -0.7em; left: -0.5em;
+      top: -0.3em; left: -0.55em;
       width: clamp(5rem, 9vw, 9rem); opacity: .6;
     }
     .hero-body {
