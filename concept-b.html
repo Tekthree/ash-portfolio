@@ -196,8 +196,28 @@
     .stat-label {
       font-family: "arboria", sans-serif; font-weight: 400;
       font-size: 0.6875rem; letter-spacing: .14em; text-transform: uppercase;
-      color: var(--ink-soft); margin: 0; max-width: 14ch; line-height: 1.5;
+      color: var(--ink-soft); margin: 0; max-width: 12rem; line-height: 1.55;
     }
+    /* Credibility line — the showrooms are real weight; say them quietly */
+    .cred-row {
+      max-width: 84rem; margin: 0 auto;
+      padding: var(--space-2xs) var(--space-md);
+      border-top: 1px solid var(--line);
+      display: flex; flex-wrap: wrap; align-items: baseline;
+      justify-content: center; gap: 0.5rem 1.5rem;
+      text-align: center;
+    }
+    .cred-intro {
+      font-family: "arboria", sans-serif; font-size: 0.6875rem;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: #9A8878; margin: 0;
+    }
+    .cred-row span {
+      font-family: var(--serif); font-style: italic; font-weight: 500;
+      font-size: clamp(1rem, 0.28vw + 0.94rem, 1.1875rem);
+      color: var(--ink-soft);
+    }
+    .cred-row .cred-dot { color: var(--terracotta); font-style: normal; }
 
     /* ---- PROJECT INDEX: numbered editorial entries, alternating ---- */
     #work { padding: var(--space-2xl) 0 var(--space-xl); scroll-margin-top: 5rem; }
@@ -312,6 +332,40 @@
       font-size: clamp(0.9375rem, 0.12vw + 0.9rem, 1rem); line-height: 1.7; color: var(--ink-soft); margin: 0;
     }
 
+    /* ---- PROCESS: three steps on one hairline ---- */
+    #process { padding: 0 0 var(--space-2xl); scroll-margin-top: 5rem; }
+    .process-header { margin-bottom: var(--space-lg); max-width: 44rem; }
+    .process-note {
+      font-family: "arboria", sans-serif;
+      font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.7;
+      color: var(--ink-soft); margin: var(--space-2xs) 0 0; max-width: 44ch;
+    }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(calc(var(--r-large) * 3 + var(--r-medium) * 1 + var(--r-small) * 1), minmax(0, 1fr));
+      gap: var(--space-sm) var(--space-xl);
+    }
+    .step {
+      border-top: 1px solid var(--line);
+      padding-top: var(--space-sm);
+    }
+    .step-num {
+      font-family: var(--serif); font-weight: 500; font-style: italic;
+      font-size: clamp(2.75rem, 2.07vw + 2.26rem, 4.125rem); line-height: 1;
+      color: var(--blush); margin: 0 0 var(--space-2xs);
+    }
+    .step-name {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.375rem, 0.47vw + 1.26rem, 1.6875rem);
+      letter-spacing: .05em; text-transform: uppercase;
+      margin: 0 0 var(--space-3xs);
+    }
+    .step-body {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: clamp(0.9375rem, 0.12vw + 0.9rem, 1rem); line-height: 1.75;
+      color: var(--ink-soft); margin: 0; max-width: 34ch;
+    }
+
     /* ---- ABOUT ---- */
     #about { padding: 0 0 var(--space-2xl); scroll-margin-top: 5rem; }
     .about-layout {
@@ -340,7 +394,8 @@
       font-family: var(--serif); font-weight: 600;
       /* 32px at 375 → 46px at 1440 */
       font-size: clamp(2rem, 1.31vw + 1.69rem, 2.875rem);
-      line-height: 0.98; letter-spacing: -.01em; margin: 0 0 var(--space-xs);
+      line-height: 1.04; letter-spacing: -.005em; margin: 0 0 var(--space-xs);
+      text-wrap: balance;
     }
     .about-name em { font-style: italic; font-weight: 400; color: var(--terracotta); }
     .about-body {
@@ -348,6 +403,20 @@
       font-size: clamp(1rem, 0.09vw + 0.98rem, 1.0625rem); line-height: 1.8; color: var(--ink-soft);
       max-width: 54ch; margin: 0 0 var(--space-2xs);
     }
+    /* Areas of focus — hairline-ruled index under the bio */
+    .about-caps { margin-top: var(--space-sm); max-width: 30rem; }
+    .caps-intro {
+      font-family: var(--serif); font-style: italic; font-weight: 500;
+      font-size: 1.125rem; color: var(--ink); margin: 0 0 var(--space-3xs);
+    }
+    .caps-row {
+      font-family: "arboria", sans-serif; font-weight: 400;
+      font-size: 0.6875rem; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--ink-soft); margin: 0;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .caps-row:first-of-type { border-top: 1px solid var(--line); }
 
     /* ---- CTA + FOOTER: dark band with keyword strip ---- */
     #contact { background: var(--ink); color: var(--paper); scroll-margin-top: 5rem; }
@@ -389,7 +458,7 @@
     .word-strip span {
       font-family: var(--serif); font-style: italic; font-weight: 500;
       font-size: clamp(0.9375rem, 0.5vw + 0.8rem, 1.25rem);
-      color: rgba(246,241,233,.5);
+      color: rgba(246,241,233,.62);
     }
     .footer-bottom {
       max-width: 84rem; margin: 0 auto;
@@ -484,6 +553,14 @@
           <p class="stat-num">SEA</p>
           <p class="stat-label">Based in Seattle, WA</p>
         </div>
+      </div>
+      <div class="cred-row">
+        <p class="cred-intro">A decade alongside</p>
+        <span>B&amp;B Italia</span><span class="cred-dot">&middot;</span>
+        <span>Inform Interiors</span><span class="cred-dot">&middot;</span>
+        <span>Codor Design</span><span class="cred-dot">&middot;</span>
+        <span>J. Garner Home</span><span class="cred-dot">&middot;</span>
+        <span>Alchemy Collections</span>
       </div>
     </div>
   </section>
@@ -621,6 +698,33 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="contain">
+      <div class="process-header" data-reveal>
+        <h2 class="section-heading"><i>How it</i> <em>works.</em></h2>
+        <p class="process-note">Three steps, from the first conversation to the day you move back in. No mystery, no black box.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step" data-reveal>
+          <p class="step-num">01</p>
+          <h3 class="step-name">Listen</h3>
+          <p class="step-body">It starts with how you live and work in the space. Routines, frustrations, the things you love. No assumptions.</p>
+        </div>
+        <div class="step" data-reveal>
+          <p class="step-num">02</p>
+          <h3 class="step-name">Design</h3>
+          <p class="step-body">Plans, materials, and details come together into one clear direction you can see and feel before anything is built.</p>
+        </div>
+        <div class="step" data-reveal>
+          <p class="step-num">03</p>
+          <h3 class="step-name">Build</h3>
+          <p class="step-body">Ash works alongside your builders and makers to keep the vision intact, from first cut to final styling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="contain">
@@ -632,7 +736,14 @@
           <p class="about-eyebrow">About</p>
           <h2 class="about-name">Trained to see what <em>most people miss.</em></h2>
           <p class="about-body">Ash Riffe is a Seattle-based interior architecture designer, graduating with her BFA from Ohio University in 2026. Her first memory of architecture is Frank Lloyd Wright's Lowell and Agnes Walter House in small-town Iowa, at age seven. The pull never let go.</p>
-          <p class="about-body">Nearly a decade in Seattle's luxury furniture world (B&amp;B Italia, Inform Interiors, Codor Design, J. Garner Home, Alchemy Collections) taught her how materials, makers, and clients actually work together. Her spaces are classic with an edge: clean lines, honest materials, collected and layered.</p>
+          <p class="about-body">Nearly a decade in Seattle's luxury furniture world taught her how materials, makers, and clients actually work together. Her spaces are classic with an edge: clean lines, honest materials, collected and layered.</p>
+          <div class="about-caps">
+            <p class="caps-intro">Areas of focus:</p>
+            <p class="caps-row">Residential &amp; Commercial Design</p>
+            <p class="caps-row">Furniture &amp; Lighting Procurement</p>
+            <p class="caps-row">Concept Development &amp; 3D Visualization</p>
+            <p class="caps-row">Historic Preservation &amp; Biophilic Design</p>
+          </div>
         </div>
       </div>
     </div>
