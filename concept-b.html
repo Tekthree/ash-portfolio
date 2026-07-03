@@ -128,31 +128,17 @@
     }
     /* The signature: display serif reaching across the gutter, onto the
        photo — the page reads as one composed spread, not two columns. */
-    /* The lockup is deterministic: italic line, then two caps lines broken
-       by hand. No photo crossing, no viewport-dependent rag — the same
-       composition at every width, just scaled. */
+    /* One style, one size, one line-height — letterspaced caps all the
+       way down. Color carries the emphasis, typography stays uniform. */
     .hero-headline {
-      font-family: var(--serif); font-weight: 600;
-      /* 46px at 375 → 88px at 1440 (Lumos slope+intercept form) */
-      font-size: clamp(2.875rem, 3.94vw + 1.95rem, 5.5rem);
-      letter-spacing: -.01em;
+      font-family: var(--serif); font-weight: 500;
+      /* 34px at 375 → 65px at 1440 (Lumos slope+intercept form) */
+      font-size: clamp(2.125rem, 2.91vw + 1.44rem, 4.0625rem);
+      text-transform: uppercase; letter-spacing: .08em;
+      line-height: 1.14;
       margin: 0 0 var(--space-xs);
     }
-    .hero-headline .t-ital {
-      display: block; font-style: italic; font-weight: 500;
-      color: var(--terracotta); line-height: 0.95;
-      /* Negative: absorbs the caps line box's top half-leading, PLUS a
-         little more — the seam has no ascenders/descenders filling it
-         ("conversation" and flat cap tops), so equal baselines read as a
-         bigger gap. Optically tightened, not mathematically equal. */
-      margin-bottom: -0.3em;
-    }
-    .hero-headline .t-caps {
-      display: block; text-transform: uppercase; font-weight: 500;
-      /* .74em type: 1.284 unitless = the same ABSOLUTE leading as the
-         italic's 0.95 (0.74 x 1.284 = 0.95 of the shared root size) */
-      font-size: .74em; letter-spacing: .08em; line-height: 1.284;
-    }
+    .hero-headline .t-accent { color: var(--terracotta); }
     /* The hand-drawn line, now a flourish between headline and body —
        a fixed spot in the flow, so it can never collide with anything */
     .hero-flourish {
@@ -530,8 +516,7 @@
         <div class="hero-copy" data-reveal>
           <p class="hero-eyebrow">Interior Architecture &middot; Seattle, WA</p>
           <h1 class="hero-headline">
-            <span class="t-ital">A lasting conversation</span>
-            <span class="t-caps">between past<br>&amp; future.</span>
+            <span class="t-accent">A lasting<br>conversation</span><br>between past<br>&amp; future.
           </h1>
           <svg class="hero-flourish" viewBox="0 0 170 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M4 40C24 14 38 58 58 36C76 16 70 4 92 8C114 12 106 44 130 40C146 37.4 150 20 166 18" stroke="#C07B68" stroke-width="2" stroke-linecap="round"/>
