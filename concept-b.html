@@ -128,23 +128,30 @@
     }
     /* The signature: display serif reaching across the gutter, onto the
        photo — the page reads as one composed spread, not two columns. */
+    /* The lockup is deterministic: italic line, then two caps lines broken
+       by hand. No photo crossing, no viewport-dependent rag — the same
+       composition at every width, just scaled. */
     .hero-headline {
       font-family: var(--serif); font-weight: 600;
-      /* 44px at 375 → 84px at 1440 (Lumos slope+intercept form) */
-      font-size: clamp(2.75rem, 3.76vw + 1.87rem, 5.25rem);
-      line-height: 0.98; letter-spacing: -.015em;
-      margin: 0 0 var(--space-sm);
-      /* A modest reach across the gutter — one letterform's worth, so the
-         crossing reads deliberate at every width instead of colliding */
-      margin-right: calc(-1 * clamp(0rem, 4vw, 3.5rem) * var(--r-large));
-      position: relative;
+      /* 46px at 375 → 88px at 1440 (Lumos slope+intercept form) */
+      font-size: clamp(2.875rem, 3.94vw + 1.95rem, 5.5rem);
+      letter-spacing: -.01em;
+      margin: 0 0 var(--space-xs);
     }
-    .hero-headline .t-ital { font-style: italic; font-weight: 500; color: var(--terracotta); }
-    .hero-headline .t-caps { text-transform: uppercase; letter-spacing: .06em; font-weight: 500; font-size: .78em; line-height: 1.08; display: inline-block; }
-    .hero-squiggle {
-      position: absolute; z-index: -1;
-      top: -0.3em; left: -0.55em;
-      width: clamp(5rem, 9vw, 9rem); opacity: .6;
+    .hero-headline .t-ital {
+      display: block; font-style: italic; font-weight: 500;
+      color: var(--terracotta); line-height: 1.04;
+      margin-bottom: 0.12em;
+    }
+    .hero-headline .t-caps {
+      display: block; text-transform: uppercase; font-weight: 500;
+      font-size: .74em; letter-spacing: .08em; line-height: 1.14;
+    }
+    /* The hand-drawn line, now a flourish between headline and body —
+       a fixed spot in the flow, so it can never collide with anything */
+    .hero-flourish {
+      display: block; width: clamp(4.5rem, 6vw, 6rem);
+      margin: 0 0 var(--space-xs); opacity: .85;
     }
     .hero-body {
       font-family: "arboria", sans-serif; font-weight: 400;
@@ -517,11 +524,12 @@
         <div class="hero-copy" data-reveal>
           <p class="hero-eyebrow">Interior Architecture &middot; Seattle, WA</p>
           <h1 class="hero-headline">
-            <svg class="hero-squiggle" viewBox="0 0 170 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M4 40C24 14 38 58 58 36C76 16 70 4 92 8C114 12 106 44 130 40C146 37.4 150 20 166 18" stroke="#C07B68" stroke-width="1.6" stroke-linecap="round"/>
-            </svg>
-            <span class="t-ital">A lasting conversation</span><br><span class="t-caps">between past &amp; future.</span>
+            <span class="t-ital">A lasting conversation</span>
+            <span class="t-caps">between past<br>&amp; future.</span>
           </h1>
+          <svg class="hero-flourish" viewBox="0 0 170 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 40C24 14 38 58 58 36C76 16 70 4 92 8C114 12 106 44 130 40C146 37.4 150 20 166 18" stroke="#C07B68" stroke-width="2" stroke-linecap="round"/>
+          </svg>
           <p class="hero-body">Interior architecture for homes and spaces in Seattle. Considered, livable, and made to last. Built around how you actually live.</p>
           <a href="work.html" class="btn-text">View the work &rarr;</a>
         </div>
