@@ -96,6 +96,9 @@ export default function App() {
           { num: "02", heading: "Biophilic Design", description: "Nature, daylight, organic forms, and indoor-outdoor harmony." },
           { num: "03", heading: "Sustainability & Longevity", description: "Material honesty, durable essentials, adaptive reuse." },
           { num: "04", heading: "Bold Colors & Artistic Flair", description: "Color as narrative, artistic collaboration, playful restraint." },
+          { num: "05", heading: "Historic Preservation", description: "Contextual integrity, delicate modernization, storytelling through materiality." },
+          { num: "06", heading: "Client-Centered Design", description: "Humanity at center, clarity of intent, transparent process." },
+          { num: "07", heading: "Artful Synthesis", description: "Integration over imposition, quiet confidence." },
         ]}
       />
       <Content2

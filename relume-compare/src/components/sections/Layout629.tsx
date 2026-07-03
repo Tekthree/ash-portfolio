@@ -37,18 +37,12 @@ export const Layout629 = (props: Layout629Props) => {
           </div>
         </div>
 
-        <div className="grid auto-cols-fr grid-cols-1 lg:grid-cols-[1fr_max-content_1fr] lg:gap-6 lg:border-t lg:border-scheme-border">
-          <div className="grid auto-cols-fr grid-cols-1 md:grid-cols-[1fr_max-content_1fr] md:gap-6 md:border-t md:border-scheme-border lg:border-t-0">
-            <Item item={listItems[0]} />
-            <div className="hidden h-full w-px bg-scheme-border md:block" />
-            <Item item={listItems[1]} />
-          </div>
-          <div className="hidden h-full w-px bg-scheme-border lg:block"></div>
-          <div className="grid auto-cols-fr grid-cols-1 md:grid-cols-[1fr_max-content_1fr] md:gap-6 md:border-t md:border-scheme-border lg:border-t-0">
-            <Item item={listItems[2]} />
-            <div className="hidden h-full w-px bg-scheme-border md:block" />
-            <Item item={listItems[3]} />
-          </div>
+        {/* Renders EVERY item (the stock component hard-rendered 4 slots,
+            which lied under a "Seven pillars" heading) */}
+        <div className="grid grid-cols-1 gap-x-12 border-t border-scheme-border md:grid-cols-2">
+          {listItems.map((item, i) => (
+            <Item key={i} item={item} />
+          ))}
         </div>
       </div>
     </section>
@@ -58,10 +52,14 @@ export const Layout629 = (props: Layout629Props) => {
 const Item = ({ item }: { item: ListItem }) => {
   if (!item) return <div />;
   return (
-    <div className="border-t border-scheme-border py-6 md:border-t-0">
-      <p className="mb-5 md:mb-6 font-serif text-h5 text-terracotta">{item.num}</p>
-      <h3 className="mb-3 text-h5 font-bold md:mb-4">{item.heading}</h3>
-      <p className="text-ink-soft">{item.description}</p>
+    <div className="border-b border-scheme-border py-6 md:py-8">
+      <div className="grid grid-cols-[auto_1fr] items-baseline gap-6">
+        <p className="font-serif italic text-h6 text-terracotta">{item.num}</p>
+        <div>
+          <h3 className="mb-2 text-h5 font-bold">{item.heading}</h3>
+          <p className="text-ink-soft">{item.description}</p>
+        </div>
+      </div>
     </div>
   );
 };
