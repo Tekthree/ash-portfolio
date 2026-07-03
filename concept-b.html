@@ -141,11 +141,15 @@
     .hero-headline .t-ital {
       display: block; font-style: italic; font-weight: 500;
       color: var(--terracotta); line-height: 0.95;
-      margin-bottom: 0.05em;
+      /* Negative: absorbs the caps line box's top half-leading so the
+         block seam matches the 0.95 rhythm inside each block */
+      margin-bottom: -0.14em;
     }
     .hero-headline .t-caps {
       display: block; text-transform: uppercase; font-weight: 500;
-      font-size: .74em; letter-spacing: .08em; line-height: 0.95;
+      /* .74em type: 1.284 unitless = the same ABSOLUTE leading as the
+         italic's 0.95 (0.74 x 1.284 = 0.95 of the shared root size) */
+      font-size: .74em; letter-spacing: .08em; line-height: 1.284;
     }
     /* The hand-drawn line, now a flourish between headline and body —
        a fixed spot in the flow, so it can never collide with anything */
