@@ -141,9 +141,11 @@
     .hero-headline .t-ital {
       display: block; font-style: italic; font-weight: 500;
       color: var(--terracotta); line-height: 0.95;
-      /* Negative: absorbs the caps line box's top half-leading so the
-         block seam matches the 0.95 rhythm inside each block */
-      margin-bottom: -0.14em;
+      /* Negative: absorbs the caps line box's top half-leading, PLUS a
+         little more — the seam has no ascenders/descenders filling it
+         ("conversation" and flat cap tops), so equal baselines read as a
+         bigger gap. Optically tightened, not mathematically equal. */
+      margin-bottom: -0.3em;
     }
     .hero-headline .t-caps {
       display: block; text-transform: uppercase; font-weight: 500;
