@@ -113,6 +113,51 @@
     }
     .nav-link:hover { opacity: 1; color: var(--terracotta); }
 
+    /* Hamburger trigger — hidden by default, shown under 900px (matches
+       the --r-medium container-query breakpoint used everywhere else) */
+    .nav-hamburger {
+      display: none;
+      width: 44px; height: 44px; padding: 0;
+      align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer;
+      color: var(--ink);
+    }
+    .nav-hamburger:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+    .nav-hamburger svg { width: 22px; height: 22px; }
+    .nav-hamburger .icon-close { display: none; }
+    body.nav-open .nav-hamburger .icon-open { display: none; }
+    body.nav-open .nav-hamburger .icon-close { display: block; }
+
+    /* Full-screen mobile menu overlay */
+    .nav-mobile-panel {
+      position: fixed; inset: 0; z-index: 49;
+      background: var(--paper);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: var(--space-md);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
+    }
+    .nav-mobile-link {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      text-decoration: none; color: var(--ink);
+      min-height: 44px; display: flex; align-items: center;
+    }
+    .nav-mobile-link:hover, .nav-mobile-link:focus-visible { color: var(--terracotta); }
+
+    @container (width < 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: inline-flex; }
+      /* Overlay open-state is gated to this same breakpoint so it can't get
+         stuck visible if the viewport crosses back to desktop width while
+         the menu is open (foldables, rotation, window resize). */
+      body.nav-open .nav-mobile-panel {
+        opacity: 1; visibility: visible; transform: translateY(0);
+        transition: opacity .22s ease, transform .22s ease;
+      }
+      body.nav-open { overflow: hidden; }
+    }
+
     /* ---- HERO: editorial split, headline crossing the photo ---- */
     #hero { padding: clamp(6.5rem, 10vw, 10.5rem) 0 var(--space-xl); position: relative; }
     .hero-layout {
@@ -504,8 +549,19 @@
         <a href="#about" class="nav-link">About</a>
         <a href="#contact" class="nav-link">Contact</a>
       </div>
+      <button type="button" class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navMobilePanel">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
   </nav>
+
+  <div class="nav-mobile-panel" id="navMobilePanel">
+    <a href="work.html" class="nav-mobile-link">Work</a>
+    <a href="#ethos" class="nav-mobile-link">Ethos</a>
+    <a href="#about" class="nav-mobile-link">About</a>
+    <a href="#contact" class="nav-mobile-link">Contact</a>
+  </div>
 
   <span id="top"></span>
 
@@ -783,6 +839,28 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+    const navHamburger = document.getElementById('navHamburger');
+    const navMobilePanel = document.getElementById('navMobilePanel');
+    function closeMobileNav() {
+      document.body.classList.remove('nav-open');
+      navHamburger.setAttribute('aria-expanded', 'false');
+      navHamburger.setAttribute('aria-label', 'Open menu');
+    }
+    function openMobileNav() {
+      document.body.classList.add('nav-open');
+      navHamburger.setAttribute('aria-expanded', 'true');
+      navHamburger.setAttribute('aria-label', 'Close menu');
+    }
+    navHamburger.addEventListener('click', () => {
+      document.body.classList.contains('nav-open') ? closeMobileNav() : openMobileNav();
+    });
+    navMobilePanel.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMobileNav);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.body.classList.contains('nav-open')) closeMobileNav();
+    });
   </script>
 
 </body>
